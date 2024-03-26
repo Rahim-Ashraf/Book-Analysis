@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import banner from '../assets/banner.png'
 import Books from './Books';
 

@@ -18,7 +18,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("./booksData.json"),
+        loader: async () => {
+          const data = await fetch("https://raw.githubusercontent.com/Rahim-Ashraf/books-json/main/booksData.json")
+          const result = await data.json()
+          return result
+        },
         element: <Home />
       },
       {
@@ -31,10 +35,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/book-details/:id",
-        loader: () => fetch("./booksData.json"),
-        element: <Details />
+        loader: async () => {
+          const data = await fetch("https://raw.githubusercontent.com/Rahim-Ashraf/books-json/main/booksData.json")
+          const result = await data.json()
+          return result
+        },
+      element: <Details />
       }
-    ]
+]
   },
 ]);
 

@@ -9,7 +9,7 @@ const Book = ({ book }) => {
                 <div className="p-4 border border-gray-200 rounded-xl">
                     <div className="bg-gray-200 rounded-md flex justify-center p-4 mb-4">
                         <div className="h-[200px]">
-                            <img className="mx-auto h-full" src={image} alt="Shoes" />
+                            <img className="mx-auto h-full" src={image} alt={bookName} />
                         </div>
                     </div>
                     <div className="">
