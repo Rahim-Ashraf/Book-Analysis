@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -21,14 +21,14 @@ const Navbar = () => {
                         }>Pages to Read</NavLink></li>
                     </ul>
                 </div>
-                <button className="btn btn-ghost text-2xl font-black">Book Vibe</button>
+                <Link to={"/"} className="btn btn-ghost text-2xl font-black">Book Vibe</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-6 font-semibold">
                     <li><NavLink to={"/"} className={({ isActive }) =>
                         isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-3 px-4" : ""
                     }>Home</NavLink></li>
-                    <li><NavLink to={"/listed-books"} className={({ isActive }) =>
+                    <li><NavLink to={"/listed-books/read-books"} className={({ isActive }) =>
                         isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-3 px-4" : ""
                     }>Listed Books</NavLink></li>
                     <li><NavLink to={"/pages-to-read"} className={({ isActive }) =>

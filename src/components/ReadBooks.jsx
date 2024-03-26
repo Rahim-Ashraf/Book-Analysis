@@ -1,11 +1,11 @@
+import ReadBook from "./ReadBook";
 
 
 const ReadBooks = () => {
-    const bookData = JSON.parse(localStorage.getItem("readItem3"))
-    console.log(bookData)
+    const readBooksFromLocalStorage = JSON.parse(localStorage.getItem("readBooks"))
     return (
-        <div>
-            
+        <div className="py-4">
+            {readBooksFromLocalStorage?.map((book, idx) => <ReadBook key={idx} book={book}/>)}
         </div>
     );
 };

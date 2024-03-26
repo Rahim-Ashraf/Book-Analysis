@@ -9,14 +9,13 @@ const Details = () => {
     const allBooksData = useLoaderData()
     const { id } = useParams()
     const bookData = allBooksData?.find(book => book.bookId === parseInt(id))
-    const { bookId, image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = bookData
+    const { image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = bookData
 
     const toastWarn = () => toast.warn("Item is alredy added");
     const toastReadBook = () => toast("Book is added to Read books");
     const toastWishlist = () => toast("Book is added to Wishlist");
-    const [read, setRead] = useState(false)
-    const [wishlist, setWishlist] = useState(false)
     const [readBooks, setReadBooks] = useState([]);
+    const [wishlistBooks, setWishlistBooks] = useState([]);
     useEffect(() => {
         // Retrieve items from local storage when component mounts
         const storedItems = JSON.parse(localStorage.getItem('readBooks'));
@@ -24,34 +23,41 @@ const Details = () => {
             setReadBooks(storedItems);
         }
     }, []);
+    useEffect(() => {
+        // Retrieve items from local storage when component mounts
+        const storedItems = JSON.parse(localStorage.getItem('wishlistBooks'));
+        if (storedItems) {
+            setWishlistBooks(storedItems);
+        }
+    }, []);
+    const checkitemInLocalStorage = (item, dataName) => {
+        const parseGetedItem = JSON.parse(localStorage.getItem(dataName))
+        const getedItemId = parseGetedItem?.map(thisItem => thisItem.bookId)
+        const checkIsItemInclud = getedItemId?.includes(item.bookId)
+        return checkIsItemInclud
+    }
     const handleReadClick = (item) => {
-        const parseGetedItem = JSON.parse(localStorage.getItem("items"))
-        console.log(parseGetedItem)
-        const checkIsItemInclud = parseGetedItem?.filter(thisItem => thisItem.bookId === item.bookId)
-        console.log(checkIsItemInclud, item)
-        // console.log(localBooks)
-        if (read === true) {
+        const checkitem = checkitemInLocalStorage(item, "readBooks")
+        if (checkitem) {
             toastWarn()
             return
         }
         toastReadBook()
-        setRead(true)
-        setReadBooks(prevItems => [...prevItems, item]);
+        setReadBooks([...readBooks, item]);
         localStorage.setItem('readBooks', JSON.stringify([...readBooks, item]));
-        // const itemInLocalStorage = localStorage.getItem("localBooks")
-        // console.log(itemInLocalStorage)
-        // console.log(localBooks, bookData)
 
     }
-    const handleWishlistClick = () => {
+    const handleWishlistClick = (item) => {
+        const checkitem = checkitemInLocalStorage(item, "readBooks")
+        const checkitem2 = checkitemInLocalStorage(item, "wishlistBooks")
 
-        if (read === true || wishlist === true) {
+        if (checkitem || checkitem2) {
             toastWarn()
             return
         }
         toastWishlist()
-        localStorage.setItem("wishlistItem" + bookId, JSON.stringify(bookData))
-        setWishlist(true)
+        setWishlistBooks([...wishlistBooks, item]);
+        localStorage.setItem('wishlistBooks', JSON.stringify([...wishlistBooks, item]));
     }
     return (
         <div>
@@ -94,7 +100,7 @@ const Details = () => {
                     </table>
                     <div className="mt-4 flex gap-4">
                         <button onClick={() => handleReadClick(bookData)} className="btn bg-white border border-gray-400">Read</button>
-                        <button onClick={handleWishlistClick} className="btn bg-[#59C6D2] text-white">Wishlist</button>
+                        <button onClick={() => handleWishlistClick(bookData)} className="btn bg-[#59C6D2] text-white">Wishlist</button>
                     </div>
                 </div>
             </div>
