@@ -1,10 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
+import ReadBooks from "./ReadBooks";
+import WishlistBooks from "./WishlistBooks";
 
 
 const ListedBooks = () => {
     const readBooksFromLocalStorage = JSON.parse(localStorage.getItem("readBooks"))
     const wishlistBooksFromLocalStorage = JSON.parse(localStorage.getItem("wishlistBooks"))
-    
+
     const handleSortData = (data) => {
         const sortBy = data.target.value
 
@@ -30,6 +32,10 @@ const ListedBooks = () => {
                         isActive ? "border border-gray-400 border-b-6 border-b-white p-2" : ""
                     }>Wishlist Books</NavLink></li>
                 </ul>
+            </div>
+            <div>
+                <ReadBooks />
+                <WishlistBooks />
             </div>
             <Outlet />
         </div>

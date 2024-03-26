@@ -36,7 +36,7 @@ const Navbar = () => {
                     }>Pages to Read</NavLink></li>
                 </ul>
             </div>
-            <div className="navbar-end flex gap-4">
+            <div className="navbar-end flex flex-col lg:flex-row gap-4">
                 <a className="btn bg-[#23BE0A] text-white">Sign In</a>
                 <a className="btn bg-[#59C6D2] text-white">Sign Up</a>
             </div>

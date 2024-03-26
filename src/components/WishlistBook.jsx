@@ -15,7 +15,7 @@ const WishlistBook = ({book}) => {
                     {bookName}
                 </h1>
                 <p>{author}</p>
-                <div className="flex gap-8">
+                <div className="lg:flex gap-8">
                     <p className="font-bold">Tag</p>
                     <p className="text-[#23BE0A]">#{tags[0]}</p>
                     <p className="text-[#23BE0A]">#{tags[1]}</p>
@@ -24,7 +24,7 @@ const WishlistBook = ({book}) => {
                         <p>Year of Publishing: {yearOfPublishing}</p>
                     </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="lg:flex gap-4">
                     <div className="flex items-center gap-1">
                         <IoIosPersonAdd />
                         <p>Publisher: {author}</p>
@@ -35,7 +35,7 @@ const WishlistBook = ({book}) => {
                     </div>
                 </div>
                 <hr />
-                <div className="flex gap-4 items-center">
+                <div className="lg:flex space-y-2 gap-4 items-center">
                     <p className="p-4 rounded-full text-sky-600 bg-sky-200">Category: {category}</p>
                     <p className="p-4 rounded-full text-amber-600 bg-amber-200">Rating: {rating}</p>
                     <Link to={`/book-details/${bookId}`} className="btn rounded-full bg-[#23BE0A] text-white">View Details</Link>
