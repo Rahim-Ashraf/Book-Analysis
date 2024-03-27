@@ -11,11 +11,8 @@ const ReadBooks = () => {
         setReadItems(readBooksFromLocalStorage)
     }, [])
 
-    console.log(readItems)
-
     const handleSortData = (data) => {
         const sortBy = data.target.value
-        console.log(sortBy)
 
         if (sortBy === "Rating") {
             const sortedData = readBooksFromLocalStorage.sort(((a, b) => b.rating - a.rating))

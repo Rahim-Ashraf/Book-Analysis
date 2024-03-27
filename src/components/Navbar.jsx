@@ -13,12 +13,18 @@ const Navbar = () => {
                         <li><NavLink to={"/"} className={({ isActive }) =>
                             isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-1 px-2" : ""
                         }>Home</NavLink></li>
-                        <li><NavLink to={"/listed-books"} className={({ isActive }) =>
+                        <li><NavLink to={"/listed-books/read-books"} className={({ isActive }) =>
                             isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-1 px-2" : ""
                         }>Listed Books</NavLink></li>
                         <li><NavLink to={"/pages-to-read"} className={({ isActive }) =>
                             isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-1 px-2" : ""
                         }>Pages to Read</NavLink></li>
+                        <li><NavLink to={"/about"} className={({ isActive }) =>
+                            isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-3 px-4" : ""
+                        }>About</NavLink></li>
+                        <li><NavLink to={"/contact"} className={({ isActive }) =>
+                            isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-3 px-4" : ""
+                        }>Contact</NavLink></li>
                     </ul>
                 </div>
                 <Link to={"/"} className="btn btn-ghost text-2xl font-black">Book Vibe</Link>
@@ -34,6 +40,12 @@ const Navbar = () => {
                     <li><NavLink to={"/pages-to-read"} className={({ isActive }) =>
                         isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-3 px-4" : ""
                     }>Pages to Read</NavLink></li>
+                    <li><NavLink to={"/about"} className={({ isActive }) =>
+                        isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-3 px-4" : ""
+                    }>About</NavLink></li>
+                    <li><NavLink to={"/contact"} className={({ isActive }) =>
+                        isActive ? "text-[#23BE0A] border rounded-md border-[#23BE0A] py-3 px-4" : ""
+                    }>Contact</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end flex flex-col lg:flex-row gap-4">

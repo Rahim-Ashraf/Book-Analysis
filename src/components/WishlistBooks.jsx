@@ -11,11 +11,8 @@ const WishlistBooks = () => {
         setWishlist(wishlistBooksFromLocalStorage)
     }, [])
     
-    console.log(wishlist)
     const handleSortData = (data) => {
         const sortBy = data.target.value
-        setWishlist([sortBy])
-        console.log(sortBy)
 
         if (sortBy === "Rating") {
             const sortedData = wishlistBooksFromLocalStorage.sort(((a, b) => b.rating - a.rating))
