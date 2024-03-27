@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const WishlistBook = ({book}) => {
     const { bookId, image, bookName, author, category, tags, totalPages, publisher, yearOfPublishing, rating } = book
     return (
-        <div className="flex gap-4 p-4 border border-gray-400 rounded-lg mb-4">
+        <div className="lg:flex gap-4 p-4 border border-gray-400 rounded-lg mb-4">
             <div className="bg-gray-200 rounded-lg p-4">
                 <img src={image} alt="" />
             </div>
